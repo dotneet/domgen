@@ -34,6 +34,15 @@ document.body.appendChild(
 document.body.appendChild(
     domgen('p', null, [domgen('span', null, 'Child Element Text Node')])
 )
+
+// Event
+function onClickButton () {
+  alert('click!')
+}
+document.body.appendChild(
+    domgen('button', {onclick: onClickButton}, 'Click Me')
+)
+
 ```
 
 ## License

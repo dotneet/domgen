@@ -6,7 +6,15 @@
     if (attrs) {
       classes = attrs.class
       delete attrs.class
-      Object.keys(attrs).forEach(function (key) { elem.setAttribute(key, attrs[key]) })
+      Object.keys(attrs).forEach(function (key) {
+        var value = attrs[key]
+        if (key.indexOf('on') === 0 && typeof value === 'function') {
+          var eventName = key.substr(2)
+          elem.addEventListener(eventName, value)
+        } else {
+          elem.setAttribute(key, attrs[key])
+        }
+      })
     }
     if (classes) {
       if (Array.isArray(classes)) {
