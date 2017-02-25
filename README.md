@@ -10,6 +10,14 @@ npm install --save domgen
 
 ## Usage
 
+The domgen signature is:
+
+```
+domgen(elementName, attributes, children)
+```
+
+Examples:
+
 ```js
 // simple example
 document.body.appendChild(
