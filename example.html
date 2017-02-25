@@ -1,0 +1,36 @@
+<body>
+  <script src="domgen.js"></script>
+  <script>
+    // simple example
+    document.body.appendChild(
+        domgen('p', {style:'color:orange;'}, 'Text')
+    )
+
+    // Natural class notation.
+    // You can also write like this: class: 'classA classB'
+    document.body.appendChild(
+        domgen('p', {class:['classA','classB']}, 'Text that have classes')
+    )
+    
+    // You can set children recursively.
+    document.body.appendChild(
+        domgen('p', null, [domgen('span', null, 'Child Element Text Node')])
+    )
+
+    // complex example
+    document.body.appendChild(
+        domgen('p',
+            {style:"color:blue;"},
+            [
+              'This is TextNode.',
+              domgen('br'),
+              domgen('span',
+                  {class:['clsA','clsB'], attr:'attr-value'},
+                  'ChildElement'
+                )
+            ]
+          )
+    )
+
+  </script>
+</body>

@@ -1,0 +1,21 @@
+{
+  "name": "domgen",
+  "version": "1.0.0",
+  "main": "domgen.js",
+  "files": [
+    "domgen.js"
+  ],
+  "description": "domgen helps to create dom element.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dotneet/domgen.git"
+  },
+  "bugs": "https://github.com/dotneet/domgen/issues",
+  "devDependencies": {
+    "uglifyjs": "^2.4.10"
+  },
+  "scripts": {
+    "build": "uglifyjs domgen.js -c -m > domgen.min.js"
+  }
+}
