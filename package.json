@@ -16,6 +16,7 @@
     "uglifyjs": "^2.4.10"
   },
   "scripts": {
-    "build": "uglifyjs domgen.js -c -m > domgen.min.js"
+    "build": "uglifyjs domgen.js -c -m > domgen.min.js",
+    "archive": "git archive HEAD --prefix=domgen/ --format=tar.gz --output=domgen.tar.gz"
   }
 }
