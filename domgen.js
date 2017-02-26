@@ -1,11 +1,16 @@
 ;(function () {
 
-  var domgen  = function (tag,attrs,children) {
+  var domgen  = function (tag, attrs, children) {
     var elem = document.createElement(tag)
     var classes = null
+    var styles = null
     if (attrs) {
       classes = attrs.class
       delete attrs.class
+      if (attrs.style && typeof attrs.style === 'object') {
+        styles = attrs.style
+        delete attrs.style
+      }
       Object.keys(attrs).forEach(function (key) {
         var value = attrs[key]
         if (key.indexOf('on') === 0 && typeof value === 'function') {
@@ -23,10 +28,18 @@
         elem.className = classes.toString()
       }
     }
+    if (styles) {
+      Object.keys(styles).forEach(function (key) {
+        elem.style[key] = styles[key]
+      })
+    }
     if (children) {
       const addChild = function (child) {
         if (typeof(child) === 'string') {
           elem.appendChild(document.createTextNode(child))
+        } else if (Array.isArray(child)) {
+          var dom = domgen(child[0], child[1], child[2])
+          elem.appendChild(dom)
         } else {
           elem.appendChild(child)
         }

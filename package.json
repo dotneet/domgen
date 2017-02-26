@@ -1,11 +1,11 @@
 {
   "name": "domgen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "domgen.js",
   "files": [
     "domgen.js"
   ],
-  "description": "domgen helps to create dom element.",
+  "description": "domgen is tiny and intelligent DOM generating helper.",
   "license": "MIT",
   "repository": {
     "type": "git",
